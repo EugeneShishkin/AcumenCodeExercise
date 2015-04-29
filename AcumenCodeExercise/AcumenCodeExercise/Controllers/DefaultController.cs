@@ -14,5 +14,10 @@ namespace AcumenCodeExercise.Controllers
         {
             throw new NotImplementedException();
         }
+
+        public ActionResult Post()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

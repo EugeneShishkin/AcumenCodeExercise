@@ -10,9 +10,9 @@ namespace AcumenCodeExercise.Controllers
 {
     public class DefaultController : ApiController
     {
-        public ActionResult Get()
+        public String Get()
         {
-            throw new NotImplementedException();
+            return null;
         }
 
         public ActionResult Post()

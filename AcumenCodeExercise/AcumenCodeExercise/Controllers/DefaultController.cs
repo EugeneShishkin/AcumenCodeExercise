@@ -12,7 +12,7 @@ namespace AcumenCodeExercise.Controllers
     {
         public String Get()
         {
-            return "";
+            return string.Empty;
         }
 
         public ActionResult Post()

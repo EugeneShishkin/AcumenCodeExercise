@@ -1,0 +1,84 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+@*<div class="jumbotron">*@
+
+
+
+<div>
+    <h2>Eugene Shishkin's Northwind Database Exercise</h2>
+    <p class="lead">Press a button below to view the results of an exercise.</p>
+</div>
+
+<div class="row">
+    <div class="col-md-3">
+        <h2>Exercise 1</h2>
+        <p>
+            Display a list of all USA orders and the ability to view the details (Product, Quantity and Price) of each order in the list.
+        </p>
+        @*<p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>*@
+        <p>@Html.ActionLink("USA Orders", "Index", "Orders", null, new { @class = "btn btn-primary btn-lg", style = "bottom:0px;position:absolute;width:90%;" }) </p>
+    </div>
+    <div class="col-md-3">
+        <h2>Exercise 2</h2>
+        <p>Ability to add a new product to the database.</p>
+        @*<p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>*@
+        <p>@Html.ActionLink("Products", "Index", "Products", null, new { @class = "btn btn-primary btn-lg", style = "bottom:0px;position:absolute;width:90%;" })</p>
+    </div>
+    <div class="col-md-3">
+        <h2>Exercise 3</h2>
+        <p>Web service to display the list of employees.</p>
+        @*<p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>*@
+        <p>
+            @Html.ActionLink("Employees", "Index", "Employees", null, new { @class = "btn btn-primary btn-lg", style = "bottom:0px;position:absolute;width:90%;" })
+        </p>
+    </div>
+    <div class="col-md-3">
+        <h2>Exercise 4</h2>
+        <p>Display the list of employees using Javascript.</p>
+        @*<p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>*@
+        <p>
+            @Html.ActionLink("Employees via JS", "Index", "Home/Employees", null, new { @class = "btn btn-primary btn-lg", style = "bottom:0px;position:absolute;width:90%;" })
+        </p>
+    </div>
+</div>
+
+<script type="text/javascript">
+    window.onload = function () {
+        var selector = "div.row>div";
+        setEqualHeight(selector, true);
+
+        $(window).resize(function () {
+            setEqualHeight(selector, false);
+        });
+    };
+
+    function setEqualHeight(selector, triggerContinusly) {
+        var elements = $(selector);
+        elements.css("height", "auto");
+        var max = Number.NEGATIVE_INFINITY;
+
+        $.each(elements, function (index, item) {
+            if ($(item).height() > max) {
+                max = $(item).height();
+            }
+        });
+
+        max += 45; // buttons actual height;
+        $(selector).css("height", max + "px");
+
+        if (!!triggerContinusly) {
+            $(document).on("input", selector, function () {
+                setEqualHeight(selector, false);
+        });
+
+            
+        }
+
+
+    }
+
+    
+
+</script>
